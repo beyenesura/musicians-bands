@@ -13,12 +13,28 @@ describe('Band and Musician Models', () => {
     })
 
     test('can create a Band', async () => {
-        // TODO - test creating a band
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
-    })
+    // Create a new Band
+    const band = await Band.create({
+      name: 'Led Zeppelin',
+      genre: 'Rock'
+    });
 
-    test('can create a Musician', async () => {
-        // TODO - test creating a musician
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
-    })
+    // Check if the Band was created successfully
+    expect(band.id).toBeDefined();
+    expect(band.name).toBe('Led Zeppelin');
+    expect(band.genre).toBe('Rock');
+  })
+
+  test('can create a Musician', async () => {
+    // Create a new Musician
+    const musician = await Musician.create({
+      name: 'Jimmy Page',
+      instrument: 'Guitar'
+    });
+
+    // Check if the Musician was created successfully
+    expect(musician.id).toBeDefined();
+    expect(musician.name).toBe('Jimmy Page');
+    expect(musician.instrument).toBe('Guitar');
+  })
 })
